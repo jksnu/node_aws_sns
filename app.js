@@ -30,7 +30,7 @@ app.post('/subscribe', async(req, res) => {
       Endpoint: req.body.email
     };
     const result = await sns.subscribe(params).promise();
-    return result
+    res.send(result);
   } catch (error) {
     console.log(error);
     throw error;
@@ -46,7 +46,7 @@ app.post('/publish', async(req, res) => {
       Message: req.body.message
     };
     const result = await sns.publish(params).promise();
-    return result
+    res.send(result);
   } catch (error) {
     console.log(error);
     throw error;
